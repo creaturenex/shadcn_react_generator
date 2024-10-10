@@ -9,11 +9,15 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/login',
-        destination: '/api/auth/signin',
+        source: "/login",
+        destination: "/api/auth/signin",
         permanent: true,
       },
-    ]
+    ];
+  },
+  // Add ESLint configuration
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 

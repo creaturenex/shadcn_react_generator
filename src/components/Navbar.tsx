@@ -1,10 +1,10 @@
 "use client"
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from "@/components/ui/button";
 // import NavbarMobileMenu from './NavbarMobileMenu';
 import { Switch } from './ui/switch';
 import { useState } from 'react';
+import AuthButton from './AuthButton';
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -23,7 +23,7 @@ const Navbar = () => {
           </div>
     <h1 className='text-2xl font-bold'>AI Shadcn React Component Generator</h1>
           <div className='flex flex-row align-middle items-center'>
-            <Button variant="outline">Sign In</Button>
+            <AuthButton/>
             <Switch
             className='ml-2'
               checked={darkMode}

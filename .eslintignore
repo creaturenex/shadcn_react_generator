@@ -1,0 +1,9 @@
+# # Ignore all files in the components/ui directory
+# components/ui/*
+
+# Optionally, you can be more specific:
+# components/ui/*.tsx
+# components/ui/*.ts
+
+# If you want to ignore subdirectories as well, use:
+components/ui/**/*

@@ -1,11 +1,11 @@
-import NextAuth from "next-auth"
+import NextAuth, { Session } from "next-auth"
 import GitHubProvider from "next-auth/providers/github";
 
 const handler = NextAuth({
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string
     })
   ],
   pages: {
@@ -15,8 +15,8 @@ const handler = NextAuth({
     async jwt({ token, user }) {
       return { ...token, ...user }
     },
-    async session({ session, token }) {
-      session.user = token
+    async session({ session, token }):Promise<Session> {
+      session.user = token as string | undefined
       return session
     },
   },

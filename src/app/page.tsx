@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react"
 import Navbar from "@/components/Navbar";
 import FileUpload from "@/components/FileUpload";
-import AuthButton from "@/components/AuthButton";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { BookText, GithubIcon } from "lucide-react";
 
 export default function Home() {
@@ -16,13 +16,12 @@ export default function Home() {
       
       <main className="flex-grow mx-auto p-4 overflow-auto">
         <div className="max-w-screen-lg mx-auto">
-        <AuthButton />
       {loading ? (
-        <p>Loading...</p>
+        <LoadingSpinner />
       ) : session ? (
         <FileUpload />
       ) : (
-        <p>Please sign in to access the content.</p>
+        <h1 className="text-2xl font-semibold pt-32">Please sign in to access the content.</h1>
       )}
 
         </div>
