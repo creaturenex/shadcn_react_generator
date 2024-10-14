@@ -16,7 +16,7 @@ const handler = NextAuth({
       return { ...token, ...user }
     },
     async session({ session, token }):Promise<Session> {
-      session.user = token as string | undefined
+      session.user = token as Session["user"]
       return session
     },
   },

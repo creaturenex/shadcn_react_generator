@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { TextBlock, ContentBlock } from '@anthropic-ai/sdk/resources/messages.mjs';
+
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -54,7 +56,14 @@ export async function POST(request: Request) {
       ],
     });
 
-    const generatedCode = response.content[0].text;
+    const content = response.content[0];
+    let generatedCode: string;
+
+    if (content.type === 'text') {
+      generatedCode = content.text;
+    } else {
+      throw new Error('Unexpected content type in response');
+    }
 
     return NextResponse.json({ uiCode: generatedCode });
   } catch (error) {
