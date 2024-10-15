@@ -23,7 +23,6 @@ export default function Home() {
       ) : (
         <h1 className="text-2xl font-semibold pt-32">Please sign in to access the content.</h1>
       )}
-
         </div>
       </main>
 

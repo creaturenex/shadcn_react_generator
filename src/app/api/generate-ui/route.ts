@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import { TextBlock, ContentBlock } from '@anthropic-ai/sdk/resources/messages.mjs';
+import { ContentBlock } from '@anthropic-ai/sdk/resources/messages.mjs';
 
 
 const anthropic = new Anthropic({
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       ],
     });
 
-    const content = response.content[0];
+    const content = response.content[0] as ContentBlock
     let generatedCode: string;
 
     if (content.type === 'text') {

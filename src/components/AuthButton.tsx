@@ -4,8 +4,6 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { GithubIcon } from "lucide-react"
-import { GitHubLogoIcon } from "@radix-ui/react-icons"
-
 
 export default function AuthButton() {
   const { data: session, status } = useSession()
@@ -30,9 +28,8 @@ export default function AuthButton() {
 
   return (
     <>
-      Not signed in <br />
       <Button onClick={() => signIn('github')}>
-        <GitHubLogoIcon className="mr-2" />
+        <GithubIcon className="mr-2" />
         Sign in
       </Button>
     </>
